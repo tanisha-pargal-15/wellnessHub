@@ -1,0 +1,88 @@
+<div class="min-h-screen bg-black bg-opacity-70 bg-cover flex items-center" style="background-image: url('/backg.jpg');">
+    <section class="p-2 sm:p-6 lg:p-12 grid grid-cols-1 lg:grid-cols-2"
+        style="
+        width: 40vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+    ">
+        <div >
+            <h1 class="text-3xl uppercase font-semibold text-white">
+                Add Workout here
+            </h1>
+
+            <form [formGroup]="workoutForm" (submit)="onSubmit()" class="mt-6 flex flex-col items-start gap-3 text-lg">
+                <input formControlName="name" type="text" placeholder="Username" class="px-4 py-3 focus:outline-none border-2 border-black  w-full max-w-md rounded-[20px]  focus:shadow-[0_0_15px_#00EDFF]" />
+                <input formControlName="duration" type="number" placeholder="Duration"   min="1"  class="px-4 py-3 focus:outline-none border-2 border-black rounded-[20px] w-full max-w-md focus:shadow-[0_0_15px_#00EDFF]" />
+                <select class="px-4 py-3 border-2 border-black rounded-[20px] w-full max-w-md focus:shadow-[0_0_15px_#00EDFF]" formControlName="type">
+                    <option value="Gym">Gym</option>
+                    <option value="Cycling">Cycling</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Running">Running</option>
+                    <option value="Meditation">Meditation</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Weightlifting">Weightlifting</option>
+                    <option value="Pilates">Pilates</option>
+                    <option value="Zumba">Zumba</option>
+                    <option value="CrossFit">CrossFit</option>
+                    <option value="Hiking">Hiking</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Stretching">Stretching</option>
+                    <option value="Kickboxing">Kickboxing</option>
+                    <option value="Rock Climbing">Rock Climbing</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Strength Training">Strength Training</option>
+                    <option value="HIIT">HIIT (High-Intensity Interval Training)</option>
+                    <option value="Aerobics">Aerobics</option>
+                    <option value="Rowing">Rowing</option>
+                    <option value="Skating">Skating</option>
+                    <option value="Parkour">Parkour</option>
+                    <option value="Martial Arts">Martial Arts</option>
+                    <option value="Circuit Training">Circuit Training</option>
+                    <option value="Bootcamp">Bootcamp</option>
+                    <option value="Powerlifting">Powerlifting</option>
+                    <option value="Spin Class">Spin Class</option>
+                    <option value="Walking">Walking</option>
+                    <option value="Jogging">Jogging</option>
+                    <option value="Surfing">Surfing</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Soccer">Soccer</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Table Tennis">Table Tennis</option>
+                    <option value="Golf">Golf</option>
+                    <option value="Skiing">Skiing</option>
+                    <option value="Snowboarding">Snowboarding</option>
+                    <option value="Mountain Biking">Mountain Biking</option>
+                    <option value="Boxing">Boxing</option>
+                    <option value="Judo">Judo</option>
+                    <option value="Karate">Karate</option>
+                    <option value="Tai Chi">Tai Chi</option>
+                    <option value="Paddleboarding">Paddleboarding</option>
+                    <option value="Horse Riding">Horse Riding</option>
+                    <option value="Jump Rope">Jump Rope</option>
+                    <option value="Elliptical">Elliptical</option>
+                    <option value="Rowing Machine">Rowing Machine</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button 
+    type="submit" 
+    class="flex items-center gap-1 bg-cyan-950 text-white px-6 py-2 rounded-[20px] mt-4 
+           transition-all duration-300 ease-in-out 
+           hover:bg-cyan-800 hover:shadow-[0_0_15px_#00EDFF] hover:scale-105">
+    <i class="pi pi-check-circle" style="font-size: 1rem;"></i>
+    <span>Submit</span>
+</button>
+
+            </form>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,125 @@
+<div class="min-h-screen bg-black bg-opacity-70 bg-cover " style="background-image: url('/bgrxplore.jpg');">
+<section class="p-2 sm:p-6 lg:p-12 mt-6 md:mt-0">
+
+    <h1 class="text-3xl uppercase font-semibold text-white">
+        Explore Workouts
+    </h1>
+    
+    <p class="text-sm text-white mt-2 neon-text animate-blink">
+        Click on person's name to see their Workout Statistics
+    </p>
+    
+    
+
+    <!-- Searchbar and category dropdown -->
+
+    <form [formGroup]="filterForm" class="mt-6 flex items-center gap-3">
+        <input formControlName="name" type="text" placeholder="Search by name"
+            class="py-2 px-4 focus:outline-none border border-black" />
+        <select class="p-2" formControlName="type">
+            <option value="All">All</option>
+            <option value="Gym">Gym</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Running">Running</option>
+            <option value="Meditation">Meditation</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Weightlifting">Weightlifting</option>
+                    <option value="Pilates">Pilates</option>
+                    <option value="Zumba">Zumba</option>
+                    <option value="CrossFit">CrossFit</option>
+                    <option value="Hiking">Hiking</option>
+                    <option value="Dancing">Dancing</option>
+                    <option value="Stretching">Stretching</option>
+                    <option value="Kickboxing">Kickboxing</option>
+                    <option value="Rock Climbing">Rock Climbing</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Strength Training">Strength Training</option>
+                    <option value="HIIT">HIIT (High-Intensity Interval Training)</option>
+                    <option value="Aerobics">Aerobics</option>
+                    <option value="Rowing">Rowing</option>
+                    <option value="Skating">Skating</option>
+                    <option value="Parkour">Parkour</option>
+                    <option value="Martial Arts">Martial Arts</option>
+                    <option value="Circuit Training">Circuit Training</option>
+                    <option value="Bootcamp">Bootcamp</option>
+                    <option value="Powerlifting">Powerlifting</option>
+                    <option value="Spin Class">Spin Class</option>
+                    <option value="Walking">Walking</option>
+                    <option value="Jogging">Jogging</option>
+                    <option value="Surfing">Surfing</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Soccer">Soccer</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Table Tennis">Table Tennis</option>
+                    <option value="Golf">Golf</option>
+                    <option value="Skiing">Skiing</option>
+                    <option value="Snowboarding">Snowboarding</option>
+                    <option value="Mountain Biking">Mountain Biking</option>
+                    <option value="Boxing">Boxing</option>
+                    <option value="Judo">Judo</option>
+                    <option value="Karate">Karate</option>
+                    <option value="Tai Chi">Tai Chi</option>
+                    <option value="Paddleboarding">Paddleboarding</option>
+                    <option value="Horse Riding">Horse Riding</option>
+                    <option value="Jump Rope">Jump Rope</option>
+                    <option value="Elliptical">Elliptical</option>
+                    <option value="Rowing Machine">Rowing Machine</option>
+                    <option value="Other">Other</option>
+        </select>
+    </form>
+
+    @if(filteredUserData()?.length === 0) {
+    <p class="mt-6 text-xl text-center text-white">No workouts found</p>
+    } @else {
+    <p class="mt-6 text-xl text-center text-white">Workouts found: {{ filteredUserData()?.length }}</p>
+
+    <table class="mt-6 w-full bg-slate-200 border border-black" style="
+    opacity: 0.5;
+">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Workouts</th>
+                <th>Number of Workouts</th>
+                <th>Total Workout Minutes</th>
+            </tr>
+        </thead>
+
+        @for (user of paginatedData; track $index) {
+        <!-- list the workouts -->
+        <tr class="border border-gray-800 p-3  hover:bg-gray-600 hover:text-white hover: cursor-pointer">
+            <a routerLink="/{{user.name}}" class="p-3 text-center flex items-center justify-center underline">{{
+                user.name }}</a>
+            <td class="p-3 text-center">{{ getWorkoutTypes(user.workouts) }}</td>
+            <td class="p-3 text-center">{{ user.workouts.length }}</td>
+            <td class="p-3 text-center">{{ getTotalMinutes(user.workouts) }}</td>
+        </tr>
+        }
+    </table>
+    }
+
+    <!-- pagination -->
+
+    <div class="mt-6 flex items-center justify-center gap-3">
+        <button class="p-2 text-white border border-white hover:bg-black transition-all hover:text-white hover:border-black" (click)="prevPage()"
+            [disabled]="currentPage === 1">Previous</button>
+        <button class="p-2 text-white border border-white hover:bg-black transition-all hover:text-white hover:border-black" (click)="nextPage()"
+            [disabled]="currentPage === totalPages">Next</button>
+
+            <p class="text-white">Results per page: </p>
+        <select name="noOfPages" id="noOfPages" (change)="changeItemsPerPage($event)">
+            
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+
+</section>
+</div>

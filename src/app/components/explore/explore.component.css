@@ -1,0 +1,14 @@
+@keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .animate-blink {
+    animation: blink 6s infinite alternate;
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 5px #919594, 0 0 10px #747474, 0 0 15px #00ffcc, 0 0 20px #00ffcc;
+  }
+  
