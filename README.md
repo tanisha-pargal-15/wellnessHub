@@ -36,10 +36,13 @@ Health Challenge Tracker is a web application for tracking and exploring workout
 ### Run Locally
 
 1. Clone the repository:
+   ```bash
+  [ npm install](https://github.com/tanisha-pargal-15/wellnessHub.git)
+```
 
    
 
-2. Install dependencies
+3. Install dependencies
 
 ```bash
    npm install
